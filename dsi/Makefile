@@ -11,13 +11,11 @@ TARGET 			:= 	$(shell basename $(CURDIR)/..)
 BUILD 			:= 	build
 SOURCES 		:= 	src
 INCLUDES 		:=
-ARCH			:=	-mthumb -mthumb-interwork
+ARCH			:=	-mthumb -mthumb-interwork -march=armv5te -mtune=arm946e-s
 
 CFLAGS			:=	-Wall							\
                     -Werror 						\
                     -O2								\
-                    -march=armv5te					\
-                    -mtune=arm946e-s				\
                     -fomit-frame-pointer			\
                     -ffast-math						\
                     $(ARCH)
@@ -30,7 +28,7 @@ ASFLAGS			:=	$(ARCH)
 LDFLAGS			=	-specs=ds_arm9.specs			\
 					$(ARCH)							\
 					-Wl,-Map,$(notdir $*.map)
-LIBS			:=	-lnds9
+LIBS			:=	-ldswifi9 -lnds9
 LIBDIRS			:=	$(LIBNDS)
 
 # Metadata
