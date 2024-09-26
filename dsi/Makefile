@@ -1,5 +1,4 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
-
 # Standard preamble
 ifeq ($(strip $(DEVKITARM)),)
 $(error "DEVKITARM is not set, invalid developer environment.")
@@ -9,7 +8,7 @@ include $(DEVKITARM)/ds_rules
 # Configurable parameters
 TARGET 			:= 	$(shell basename $(CURDIR)/..)
 BUILD 			:= 	build
-SOURCES 		:= 	src
+SOURCES 		:= 	src gfx
 INCLUDES 		:=
 ARCH			:=	-mthumb -mthumb-interwork -march=armv5te -mtune=arm946e-s
 
@@ -72,7 +71,7 @@ else
 DEPENDS			:=	$(OFILES:.o=.d)
 $(OUTPUT).nds: $(OUTPUT).elf
 $(OUTPUT).elf: $(OFILES)
-%.o: %.bin
+%.bin.o: %.bin
 	@echo $(notdir $<)
 	$(bin2o)
 -include $(DEPENDS)
