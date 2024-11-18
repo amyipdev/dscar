@@ -8,7 +8,7 @@ include $(DEVKITARM)/ds_rules
 # Configurable parameters
 TARGET 			:= 	$(shell basename $(CURDIR)/..)
 BUILD 			:= 	build
-SOURCES 		:= 	src gfx
+SOURCES 		:= 	src
 INCLUDES 		:=
 ARCH			:=	-mthumb -mthumb-interwork -march=armv5te -mtune=arm946e-s
 
