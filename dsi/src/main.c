@@ -154,7 +154,7 @@ int main() {
     while (true) {
         swiWaitForVBlank();
         scanKeys();
-        const KEYPAD_BITS keys = keysDown();
+        const KEYPAD_BITS keys = keysHeld();
         if (keys & KEY_START) {
             iprintf("Shutting down...\n");
             resp = tx("202 Kill");
